@@ -5,6 +5,8 @@ ha-card {
   --font-size: '';
   --seconds-font-size: '';
   --am-pm-font-size: '';
+  --divider-color: '';
+  --divider-font-size: '';
   --text-color: white;
   --text-offset-horizontal: 0em;
   --text-offset-vertical: 0em;
@@ -45,6 +47,7 @@ ha-card {
   margin-left: 0.025em;
   margin-right: 0.025em;
   width: 1.25em;
+  text-indent: .06em;
 }
 
 .tick-flip-panel-text-wrapper {
@@ -68,4 +71,26 @@ ha-card {
 .ampm.tick-flip {
   font-size: var(--am-pm-font-size, var(--font-size));
   width: 2.5em;
+}
+
+.seconds.tick-flip .tick-flip-card,
+.ampm.tick-flip .tick-flip-card {
+  perspective: var(--main-perspective, 4em);
+}
+
+.seconds.tick-flip .tick-flip-shadow,
+.ampm.tick-flip .tick-flip-shadow {
+  box-shadow: 0em 0.075em 0.02em -0.03em rgb(0, 0, 0, var(--front-flap-shadow-opacity)), 0 var(--main-rear-flap-offset, var(--rear-flap-vertical-offset)) 0 var(--main-rear-flap-spread, -0.05em) var(--rear-flap-color);
+}
+
+.tick [data-layout] > .divider {
+  flex: 0 0 auto;
+  width: auto;
+  font-size: var(--divider-font-size, var(--font-size));
+  color: var(--divider-color, var(--text-color));
+  padding: 0 0.1em;
+  user-select: none;
+  align-self: center;
+  line-height: 1;
+}
 }

@@ -43,6 +43,8 @@ type Styles = {
   fontSize: string;
   secondsFontSize: string;
   amPmFontSize: string;
+  dividerColor: string;
+  dividerFontSize: string;
   textColor: string;
   textOffsetHorizontal: string;
   textOffsetVertical: string;
@@ -67,6 +69,8 @@ type ClockValue = {
   minutes: number;
   seconds: number;
   period: string;
+  div1: string;
+  div2: string;
 }
 
 // The Flip-Clock custom element
@@ -108,18 +112,20 @@ export class PqinaFlipClock extends LitElement {
 
   // Create and configure the PQINA flip clock
   setup() {
-    // Setup 'flip' subviews
-    const views: FlipView[] = [
+    // Setup 'flip' subviews with colon dividers
+    const views: any[] = [
       { view: 'flip', transform: 'pad(00)', key: 'hours' },
+      { view: 'text', key: 'div1', className: 'divider' },
       { view: 'flip', transform: 'pad(00)', key: 'minutes' }
     ];
     if (this.config.showSeconds == true) {
-      views.push({ view: 'flip', transform: 'pad(00)', key: 'seconds', className: 'seconds' })
+      views.push({ view: 'text', key: 'div2', className: 'divider' });
+      views.push({ view: 'flip', transform: 'pad(00)', key: 'seconds', className: 'seconds' });
     }
 
     // Setup AM/PM flip view
     if (this.config.showAmPm == true) {
-      views.push({ view: 'flip', key: 'period', className: 'ampm' })
+      views.push({ view: 'flip', key: 'period', className: 'ampm' });
     }
 
     // Create the main flip-clock object
@@ -196,6 +202,19 @@ export class PqinaFlipClock extends LitElement {
         const kebapCaseKey = key.replace(/([a-zA-Z])(?=[A-Z])/g,'$1-').toLowerCase()
         cardContent.style.setProperty(`--${kebapCaseKey}`, value || "");
       });
+
+      // Calculate main-font-relative values so seconds/ampm flip animation
+      // and rear flap shadow match the main clock proportions
+      const mainFontSize = this.config.styles.fontSize;
+      if (mainFontSize) {
+        const parsed = parseFloat(mainFontSize);
+        if (!isNaN(parsed)) {
+          const unit = mainFontSize.replace(String(parsed), '').trim() || 'px';
+          cardContent.style.setProperty('--main-perspective', `${parsed * 4}${unit}`);
+          cardContent.style.setProperty('--main-rear-flap-offset', `${parsed * 0.14}${unit}`);
+          cardContent.style.setProperty('--main-rear-flap-spread', `${parsed * -0.05}${unit}`);
+        }
+      }
     }
   }
 
@@ -215,7 +234,7 @@ export class PqinaFlipClock extends LitElement {
     const seconds = date.getSeconds();
     const period = rawHours >= 12 ? 'PM' : 'AM';
 
-    const value: ClockValue = { hours, minutes, seconds, period };
+    const value: ClockValue = { hours, minutes, seconds, period, div1: ':', div2: ':' };
     return value;
   }
 

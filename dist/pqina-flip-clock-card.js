@@ -1255,7 +1255,7 @@ $af0f7c3918e1ad22$exports = ".tick {\n  box-sizing: border-box;\n  -webkit-user-
 
 
 var $8a257acdecd2833c$exports = {};
-$8a257acdecd2833c$exports = "ha-card {\n  --width: 95%;\n  --height: \"\";\n  --font: inherit;\n  --font-size: \"\";\n  --seconds-font-size: \"\";\n  --am-pm-font-size: \"\";\n  --text-color: white;\n  --text-offset-horizontal: 0em;\n  --text-offset-vertical: 0em;\n  --front-flap-color: #333;\n  --front-flap-shadow-opacity: .5;\n  --front-flap-gradient-opacity: .2;\n  --rear-flap-color: #2f2f2f;\n  --rear-flap-vertical-offset: .14em;\n}\n\n.card-content {\n  container-type: inline-size;\n}\n\n.clock {\n  width: min(var(--width), 100%);\n  padding-left: calc((100% - min(var(--width), 100%)) / 2);\n}\n\n.tick {\n  line-height: var(--height);\n}\n\n.tick-flip, .tick-text-inline {\n  font-size: var(--font-size);\n  letter-spacing: .06em;\n}\n\n.tick-flip-panel {\n  color: var(--text-color);\n  background-color: var(--front-flap-color);\n}\n\n.tick-flip {\n  font-family: var(--font);\n  border-radius: .15em;\n  width: 1.25em;\n  margin-left: .025em;\n  margin-right: .025em;\n}\n\n.tick-flip-panel-text-wrapper {\n  margin-top: calc(var(--text-offset-vertical)  + .04em);\n  margin-left: calc(var(--text-offset-horizontal)  - .15em);\n}\n\n.tick-flip-shadow {\n  box-shadow: 0em .075em .02em -.03em rgb(0, 0, 0, var(--front-flap-shadow-opacity)), 0em var(--rear-flap-vertical-offset) 0em -.05em var(--rear-flap-color);\n}\n\n.tick-flip-panel-back:after {\n  background-image: linear-gradient(180deg, #000 .01em, #00000026 .015em, transparent 30%, rgba(255, 255, 255, var(--front-flap-gradient-opacity)) 100%);\n  border-radius: 0 0 .15em .15em;\n}\n\n.seconds.tick-flip {\n  font-size: var(--seconds-font-size, var(--font-size));\n}\n\n.ampm.tick-flip {\n  font-size: var(--am-pm-font-size, var(--font-size));\n  width: 2.5em;\n}\n";
+$8a257acdecd2833c$exports = "ha-card {\n  --width: 95%;\n  --height: \"\";\n  --font: inherit;\n  --font-size: \"\";\n  --seconds-font-size: \"\";\n  --am-pm-font-size: \"\";\n  --divider-color: \"\";\n  --divider-font-size: \"\";\n  --text-color: white;\n  --text-offset-horizontal: 0em;\n  --text-offset-vertical: 0em;\n  --front-flap-color: #333;\n  --front-flap-shadow-opacity: .5;\n  --front-flap-gradient-opacity: .2;\n  --rear-flap-color: #2f2f2f;\n  --rear-flap-vertical-offset: .14em;\n}\n\n.card-content {\n  container-type: inline-size;\n}\n\n.clock {\n  width: min(var(--width), 100%);\n  padding-left: calc((100% - min(var(--width), 100%)) / 2);\n}\n\n.tick {\n  line-height: var(--height);\n}\n\n.tick-flip, .tick-text-inline {\n  font-size: var(--font-size);\n  letter-spacing: .06em;\n}\n\n.tick-flip-panel {\n  color: var(--text-color);\n  background-color: var(--front-flap-color);\n}\n\n.tick-flip {\n  font-family: var(--font);\n  border-radius: .15em;\n  width: 1.25em;\n  margin-left: .025em;\n  margin-right: .025em;\n  text-indent: .06em;\n}\n\n.tick-flip-panel-text-wrapper {\n  margin-top: calc(var(--text-offset-vertical)  + .04em);\n  margin-left: calc(var(--text-offset-horizontal)  - .15em);\n}\n\n.tick-flip-shadow {\n  box-shadow: 0em .075em .02em -.03em rgb(0, 0, 0, var(--front-flap-shadow-opacity)), 0em var(--rear-flap-vertical-offset) 0em -.05em var(--rear-flap-color);\n}\n\n.tick-flip-panel-back:after {\n  background-image: linear-gradient(180deg, #000 .01em, #00000026 .015em, transparent 30%, rgba(255, 255, 255, var(--front-flap-gradient-opacity)) 100%);\n  border-radius: 0 0 .15em .15em;\n}\n\n.seconds.tick-flip {\n  font-size: var(--seconds-font-size, var(--font-size));\n}\n\n.ampm.tick-flip {\n  font-size: var(--am-pm-font-size, var(--font-size));\n  width: 2.5em;\n}\n\n.seconds.tick-flip .tick-flip-card,\n.ampm.tick-flip .tick-flip-card {\n  perspective: var(--main-perspective, 4em);\n}\n\n.seconds.tick-flip .tick-flip-shadow,\n.ampm.tick-flip .tick-flip-shadow {\n  box-shadow: 0em .075em .02em -.03em rgb(0, 0, 0, var(--front-flap-shadow-opacity)), 0 var(--main-rear-flap-offset, var(--rear-flap-vertical-offset)) 0 var(--main-rear-flap-spread, -.05em) var(--rear-flap-color);\n}\n\n.tick [data-layout] > .divider {\n  flex: 0 0 auto;\n  width: auto;\n  font-size: var(--divider-font-size, var(--font-size));\n  color: var(--divider-color, var(--text-color));\n  padding: 0 0.1em;\n  user-select: none;\n  align-self: center;\n  line-height: 1;\n}\n";
 
 
 const $c457fb01bf7d3200$export$9dd6ff9ea0189349 = (0, $def2de46b9306e8a$export$dbf350e5966cf602)`
@@ -5545,7 +5545,7 @@ class $d6fbcaf2ae884da5$export$9ff5a644c2d64964 extends (0, $ab210b2da7b39b9d$ex
     }
     // Create and configure the PQINA flip clock
     setup() {
-        // Setup 'flip' subviews
+        // Setup 'flip' subviews with colon dividers
         const views = [
             {
                 view: 'flip',
@@ -5553,17 +5553,29 @@ class $d6fbcaf2ae884da5$export$9ff5a644c2d64964 extends (0, $ab210b2da7b39b9d$ex
                 key: 'hours'
             },
             {
+                view: 'text',
+                key: 'div1',
+                className: 'divider'
+            },
+            {
                 view: 'flip',
                 transform: 'pad(00)',
                 key: 'minutes'
             }
         ];
-        if (this.config.showSeconds == true) views.push({
-            view: 'flip',
-            transform: 'pad(00)',
-            key: 'seconds',
-            className: 'seconds'
-        });
+        if (this.config.showSeconds == true) {
+            views.push({
+                view: 'text',
+                key: 'div2',
+                className: 'divider'
+            });
+            views.push({
+                view: 'flip',
+                transform: 'pad(00)',
+                key: 'seconds',
+                className: 'seconds'
+            });
+        }
         // Setup AM/PM flip view
         if (this.config.showAmPm == true) views.push({
             view: 'flip',
@@ -5628,10 +5640,23 @@ class $d6fbcaf2ae884da5$export$9ff5a644c2d64964 extends (0, $ab210b2da7b39b9d$ex
         card.style.setProperty('--height', hasExtras ? '30cqw' : '45cqw');
         card.style.setProperty('--font-size', hasExtras ? '20cqw' : '30cqw');
         const cardContent = this.shadowRoot.querySelector('.card-content');
-        if (this.config.styles) Object.entries(this.config.styles).forEach(([key, value])=>{
-            const kebapCaseKey = key.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase();
-            cardContent.style.setProperty(`--${kebapCaseKey}`, value || "");
-        });
+        if (this.config.styles) {
+            Object.entries(this.config.styles).forEach(([key, value])=>{
+                const kebapCaseKey = key.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase();
+                cardContent.style.setProperty(`--${kebapCaseKey}`, value || "");
+            });
+            // Calculate main perspective so seconds/ampm flip animation matches the main clock
+            const mainFontSize = this.config.styles.fontSize;
+            if (mainFontSize) {
+                const parsed = parseFloat(mainFontSize);
+                if (!isNaN(parsed)) {
+                    const unit = mainFontSize.replace(String(parsed), '').trim() || 'px';
+                    cardContent.style.setProperty('--main-perspective', `${parsed * 4}${unit}`);
+                    cardContent.style.setProperty('--main-rear-flap-offset', `${parsed * 0.14}${unit}`);
+                    cardContent.style.setProperty('--main-rear-flap-spread', `${parsed * -0.05}${unit}`);
+                }
+            }
+        }
     }
     // Called each second by the flip-clock timer to update the shown values
     getClockValue() {
@@ -5650,7 +5675,9 @@ class $d6fbcaf2ae884da5$export$9ff5a644c2d64964 extends (0, $ab210b2da7b39b9d$ex
         const period = rawHours >= 12 ? 'PM' : 'AM';
         const value = {
             hours: hours,
+            div1: ':',
             minutes: minutes,
+            div2: ':',
             seconds: seconds,
             period: period
         };
