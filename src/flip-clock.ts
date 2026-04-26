@@ -19,6 +19,7 @@ import Tick from '@pqina/flip';
 // HA config object
 interface Config extends LovelaceCardConfig {
   showSeconds: boolean;
+  showAmPm: boolean;
   twentyFourHourFormat: boolean;
   hideBackground: boolean;
   styles: Styles;
@@ -40,6 +41,8 @@ type Styles = {
   height: string;
   font: string;
   fontSize: string;
+  secondsFontSize: string;
+  amPmFontSize: string;
   textColor: string;
   textOffsetHorizontal: string;
   textOffsetVertical: string;
@@ -55,6 +58,7 @@ type ClockValue = {
   hours: number;
   minutes: number;
   seconds: number;
+  period: string;
 }
 
 // The Flip-Clock custom element
@@ -97,11 +101,18 @@ export class PqinaFlipClock extends LitElement {
   // Create and configure the PQINA flip clock
   setup() {
     // Setup 'flip' subviews
-    const units = ["hours", "minutes"];
+    const views = [
+      { view: 'flip', transform: 'pad(00)', key: 'hours' },
+      { view: 'flip', transform: 'pad(00)', key: 'minutes' }
+    ];
     if (this.config.showSeconds == true) {
-      units.push("seconds")
+      views.push({ view: 'flip', transform: 'pad(00)', key: 'seconds', className: 'seconds' } as any)
     }
-    const views = units.map((unit) => { return { view: 'flip', transform: 'pad(00)', key: unit } })
+
+    // Setup AM/PM flip view
+    if (this.config.showAmPm == true) {
+      views.push({ view: 'flip', key: 'period', className: 'ampm' } as any)
+    }
 
     // Create the main flip-clock object
     this._tick = Tick.DOM.create({
@@ -165,9 +176,10 @@ export class PqinaFlipClock extends LitElement {
     card.style.setProperty('--ha-card-border-color', this.config.hideBackground ? 'transparent' : '');
     card.style.setProperty('--ha-card-background', this.config.hideBackground ? 'transparent' : '');
 
-    // Set default height based on the showSeconds setting
-    card.style.setProperty('--height', this.config.showSeconds ? '30cqw' : '45cqw');
-    card.style.setProperty('--font-size', this.config.showSeconds ? '20cqw' : '30cqw');
+    // Set default height and font-size based on the showSeconds and showAmPm settings
+    const hasExtras = this.config.showSeconds || this.config.showAmPm;
+    card.style.setProperty('--height', hasExtras ? '30cqw' : '45cqw');
+    card.style.setProperty('--font-size', hasExtras ? '20cqw' : '30cqw');
 
     const cardContent: HTMLElement = this.shadowRoot.querySelector('.card-content');
 
@@ -179,7 +191,7 @@ export class PqinaFlipClock extends LitElement {
     }
   }
 
-  // Called each second by the flip-clock timer to update the shwon values
+  // Called each second by the flip-clock timer to update the shown values
   getClockValue(): ClockValue {
     const serverTimeZone = this._hass?.config?.time_zone;
     const browserTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -189,11 +201,13 @@ export class PqinaFlipClock extends LitElement {
     const timeZone = timeZoneSetting === 'server' ? serverTimeZone : browserTimeZone;
     const date = new Date(new Date().toLocaleString("en-US", { timeZone }));
 
-    const hours = this.config.twentyFourHourFormat ? date.getHours() : date.getHours() % 12 || 12;
+    const rawHours = date.getHours();
+    const hours = this.config.twentyFourHourFormat ? rawHours : rawHours % 12 || 12;
     const minutes = date.getMinutes();
     const seconds = date.getSeconds();
+    const period = rawHours >= 12 ? 'PM' : 'AM';
 
-    const value: ClockValue = { hours, minutes, seconds };
+    const value: ClockValue = { hours, minutes, seconds, period };
     return value;
   }
 

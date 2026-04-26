@@ -1255,7 +1255,7 @@ $af0f7c3918e1ad22$exports = ".tick {\n  box-sizing: border-box;\n  -webkit-user-
 
 
 var $8a257acdecd2833c$exports = {};
-$8a257acdecd2833c$exports = "ha-card {\n  --width: 95%;\n  --height: \"\";\n  --font: inherit;\n  --font-size: \"\";\n  --text-color: white;\n  --text-offset-horizontal: 0em;\n  --text-offset-vertical: 0em;\n  --front-flap-color: #333;\n  --front-flap-shadow-opacity: .5;\n  --front-flap-gradient-opacity: .2;\n  --rear-flap-color: #2f2f2f;\n  --rear-flap-vertical-offset: .14em;\n}\n\n.card-content {\n  container-type: inline-size;\n}\n\n.clock {\n  width: min(var(--width), 100%);\n  padding-left: calc((100% - min(var(--width), 100%)) / 2);\n}\n\n.tick {\n  line-height: var(--height);\n}\n\n.tick-flip, .tick-text-inline {\n  font-size: var(--font-size);\n  letter-spacing: .06em;\n}\n\n.tick-flip-panel {\n  color: var(--text-color);\n  background-color: var(--front-flap-color);\n}\n\n.tick-flip {\n  font-family: var(--font);\n  border-radius: .15em;\n  width: 1.25em;\n  margin-left: .025em;\n  margin-right: .025em;\n}\n\n.tick-flip-panel-text-wrapper {\n  margin-top: calc(var(--text-offset-vertical)  + .04em);\n  margin-left: calc(var(--text-offset-horizontal)  - .15em);\n}\n\n.tick-flip-shadow {\n  box-shadow: 0em .075em .02em -.03em rgb(0, 0, 0, var(--front-flap-shadow-opacity)), 0em var(--rear-flap-vertical-offset) 0em -.05em var(--rear-flap-color);\n}\n\n.tick-flip-panel-back:after {\n  background-image: linear-gradient(180deg, #000 .01em, #00000026 .015em, transparent 30%, rgba(255, 255, 255, var(--front-flap-gradient-opacity)) 100%);\n  border-radius: 0 0 .15em .15em;\n}\n";
+$8a257acdecd2833c$exports = "ha-card {\n  --width: 95%;\n  --height: \"\";\n  --font: inherit;\n  --font-size: \"\";\n  --seconds-font-size: \"\";\n  --am-pm-font-size: \"\";\n  --text-color: white;\n  --text-offset-horizontal: 0em;\n  --text-offset-vertical: 0em;\n  --front-flap-color: #333;\n  --front-flap-shadow-opacity: .5;\n  --front-flap-gradient-opacity: .2;\n  --rear-flap-color: #2f2f2f;\n  --rear-flap-vertical-offset: .14em;\n}\n\n.card-content {\n  container-type: inline-size;\n}\n\n.clock {\n  width: min(var(--width), 100%);\n  padding-left: calc((100% - min(var(--width), 100%)) / 2);\n}\n\n.tick {\n  line-height: var(--height);\n}\n\n.tick-flip, .tick-text-inline {\n  font-size: var(--font-size);\n  letter-spacing: .06em;\n}\n\n.tick-flip-panel {\n  color: var(--text-color);\n  background-color: var(--front-flap-color);\n}\n\n.tick-flip {\n  font-family: var(--font);\n  border-radius: .15em;\n  width: 1.25em;\n  margin-left: .025em;\n  margin-right: .025em;\n}\n\n.tick-flip-panel-text-wrapper {\n  margin-top: calc(var(--text-offset-vertical)  + .04em);\n  margin-left: calc(var(--text-offset-horizontal)  - .15em);\n}\n\n.tick-flip-shadow {\n  box-shadow: 0em .075em .02em -.03em rgb(0, 0, 0, var(--front-flap-shadow-opacity)), 0em var(--rear-flap-vertical-offset) 0em -.05em var(--rear-flap-color);\n}\n\n.tick-flip-panel-back:after {\n  background-image: linear-gradient(180deg, #000 .01em, #00000026 .015em, transparent 30%, rgba(255, 255, 255, var(--front-flap-gradient-opacity)) 100%);\n  border-radius: 0 0 .15em .15em;\n}\n\n.seconds.tick-flip {\n  font-size: var(--seconds-font-size, var(--font-size));\n}\n\n.ampm.tick-flip {\n  font-size: var(--am-pm-font-size, var(--font-size));\n  width: 2.5em;\n}\n";
 
 
 const $c457fb01bf7d3200$export$9dd6ff9ea0189349 = (0, $def2de46b9306e8a$export$dbf350e5966cf602)`
@@ -5546,17 +5546,29 @@ class $d6fbcaf2ae884da5$export$9ff5a644c2d64964 extends (0, $ab210b2da7b39b9d$ex
     // Create and configure the PQINA flip clock
     setup() {
         // Setup 'flip' subviews
-        const units = [
-            "hours",
-            "minutes"
-        ];
-        if (this.config.showSeconds == true) units.push("seconds");
-        const views = units.map((unit)=>{
-            return {
+        const views = [
+            {
                 view: 'flip',
                 transform: 'pad(00)',
-                key: unit
-            };
+                key: 'hours'
+            },
+            {
+                view: 'flip',
+                transform: 'pad(00)',
+                key: 'minutes'
+            }
+        ];
+        if (this.config.showSeconds == true) views.push({
+            view: 'flip',
+            transform: 'pad(00)',
+            key: 'seconds',
+            className: 'seconds'
+        });
+        // Setup AM/PM flip view
+        if (this.config.showAmPm == true) views.push({
+            view: 'flip',
+            key: 'period',
+            className: 'ampm'
         });
         // Create the main flip-clock object
         this._tick = (0, $be77b5faedcab601$export$2e2bcd8739ae039).DOM.create({
@@ -5611,16 +5623,17 @@ class $d6fbcaf2ae884da5$export$9ff5a644c2d64964 extends (0, $ab210b2da7b39b9d$ex
         const card = this.shadowRoot.querySelector('ha-card');
         card.style.setProperty('--ha-card-border-color', this.config.hideBackground ? 'transparent' : '');
         card.style.setProperty('--ha-card-background', this.config.hideBackground ? 'transparent' : '');
-        // Set default height based on the showSeconds setting
-        card.style.setProperty('--height', this.config.showSeconds ? '30cqw' : '45cqw');
-        card.style.setProperty('--font-size', this.config.showSeconds ? '20cqw' : '30cqw');
+        // Set default height and font-size based on the showSeconds and showAmPm settings
+        const hasExtras = this.config.showSeconds || this.config.showAmPm;
+        card.style.setProperty('--height', hasExtras ? '30cqw' : '45cqw');
+        card.style.setProperty('--font-size', hasExtras ? '20cqw' : '30cqw');
         const cardContent = this.shadowRoot.querySelector('.card-content');
         if (this.config.styles) Object.entries(this.config.styles).forEach(([key, value])=>{
             const kebapCaseKey = key.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase();
             cardContent.style.setProperty(`--${kebapCaseKey}`, value || "");
         });
     }
-    // Called each second by the flip-clock timer to update the shwon values
+    // Called each second by the flip-clock timer to update the shown values
     getClockValue() {
         const serverTimeZone = this._hass?.config?.time_zone;
         const browserTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -5630,13 +5643,16 @@ class $d6fbcaf2ae884da5$export$9ff5a644c2d64964 extends (0, $ab210b2da7b39b9d$ex
         const date = new Date(new Date().toLocaleString("en-US", {
             timeZone: timeZone
         }));
-        const hours = this.config.twentyFourHourFormat ? date.getHours() : date.getHours() % 12 || 12;
+        const rawHours = date.getHours();
+        const hours = this.config.twentyFourHourFormat ? rawHours : rawHours % 12 || 12;
         const minutes = date.getMinutes();
         const seconds = date.getSeconds();
+        const period = rawHours >= 12 ? 'PM' : 'AM';
         const value = {
             hours: hours,
             minutes: minutes,
-            seconds: seconds
+            seconds: seconds,
+            period: period
         };
         return value;
     }

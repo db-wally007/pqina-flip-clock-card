@@ -37,6 +37,7 @@ The configuration is currently only possible in YAML mode, but I hope to add a G
 | __Key__ | __Default__ | __Values__ | __Description__ |
 |-|-|-|-|
 | showSeconds | true | true / false | show or hide the third flap with the seconds |
+| showAmPm | false | true / false | show or hide the AM/PM indicator flip card to the right of the clock. Uses the same flip animation, font, and background as the main clock. |
 | twentyFourHourFormat | true | true / false | 12 or 24 hour format |
 | hideBackground | false | true / false | Hides the card background and border |
 | styles | - | [Style Level Keys](#style-level-keys) | Options to override specific CSS settings. See the next chapter and the advanced example below. |
@@ -49,6 +50,8 @@ The configuration is currently only possible in YAML mode, but I hope to add a G
 |-|-|-|-|
 | height | - | CSS size value | Height of the main card of the clock. Uses CSS size units. For example set it to a fixed 'px' value like '200px'. If you prefer a fixed aspect ratio use 'cqw' (container query width) like '30cqw', which sets the height to 30% of the width. |
 | fontSize | - | CSS size value | Can also be set in different units like 'px', 'em' or 'cqw' |
+| secondsFontSize | - | CSS size value | Font size for the seconds flap, independent of the main clock. If not set, uses the main fontSize. |
+| amPmFontSize | - | CSS size value | Font size for the AM/PM indicator, independent of the main clock. If not set, uses the main fontSize. |
 | font | default theme font | font name | Font must be available in lovelace. Search the web for how to add custom fonts to HA. |
 | textColor | - | CSS color value | Color of the font on the clock. Example: '#ffffff' or 'white' |
 | textOffsetVertical | 0 | CSS size value | Might be needed for custom fonts when the text isn't centered vertically correctly. Best set as 'em' unit like '-0.1em' |
@@ -84,3 +87,15 @@ styles:
   rearFlapColor: rgb(40, 40, 40)
 ````
 ![screenshot](docs/img/example2.jpg)
+
+### Example with AM/PM indicator and custom font sizes
+
+````YAML
+type: custom:pqina-flip-clock-card
+twentyFourHourFormat: false
+showAmPm: true
+showSeconds: true
+styles:
+  secondsFontSize: 15cqw
+  amPmFontSize: 12cqw
+````

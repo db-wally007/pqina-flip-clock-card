@@ -3,6 +3,8 @@ ha-card {
   --height: '';
   --font: inherit;
   --font-size: '';
+  --seconds-font-size: '';
+  --am-pm-font-size: '';
   --text-color: white;
   --text-offset-horizontal: 0em;
   --text-offset-vertical: 0em;
@@ -57,4 +59,13 @@ ha-card {
 .tick-flip-panel-back::after {
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 1.0) 0.01em, rgba(0, 0, 0, 0.15) 0.015em, transparent 30%, rgba(255, 255, 255, var(--front-flap-gradient-opacity)) 100%);
   border-radius: 0 0 0.15em 0.15em;
+}
+
+.seconds.tick-flip {
+  font-size: var(--seconds-font-size, var(--font-size));
+}
+
+.ampm.tick-flip {
+  font-size: var(--am-pm-font-size, var(--font-size));
+  width: 2.5em;
 }
