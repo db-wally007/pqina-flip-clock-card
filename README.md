@@ -26,6 +26,28 @@ https://github.com/Thyraz/pqina-flip-clock-card
 
 ([How to add Custom Repositories](https://hacs.xyz/docs/faq/custom_repositories/))
 
+### Testing a branch via HACS (e.g. before merging to main)
+
+You can install a pre-release version from a feature branch:
+
+1. Add this fork as a **Custom Repository** in HACS (Category: **Lovelace**):
+   `https://github.com/db-wally007/pqina-flip-clock-card`
+2. A maintainer creates a **pre-release tag** on the branch (e.g. `v1.1.0-beta.1`) and pushes it.
+   The GitHub Actions workflow will automatically build and create a release with the JS file attached.
+3. In HACS, click on the card → click the three dots menu → **Redownload** → enable **Show beta versions** → select the pre-release version.
+4. Restart Home Assistant and hard-refresh your browser.
+
+### Creating a release (for maintainers)
+
+To trigger a build and release, push a version tag:
+
+```bash
+git tag v1.1.0-beta.1
+git push origin v1.1.0-beta.1
+```
+
+The GitHub Actions workflow will build the project and create a GitHub Release with `pqina-flip-clock-card.js` attached.
+
 ## Configuration
 
 The configuration is currently only possible in YAML mode, but I hope to add a GUI editor later.
