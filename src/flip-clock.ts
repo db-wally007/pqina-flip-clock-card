@@ -53,6 +53,14 @@ type Styles = {
   rearFlapVerticalOffset: string;
 }
 
+// View definition for the PQINA Tick/Flip library
+type FlipView = {
+  view: string;
+  key: string;
+  transform?: string;
+  className?: string;
+}
+
 // Value object for updating the flip-clock
 type ClockValue = {
   hours: number;
@@ -101,17 +109,17 @@ export class PqinaFlipClock extends LitElement {
   // Create and configure the PQINA flip clock
   setup() {
     // Setup 'flip' subviews
-    const views = [
+    const views: FlipView[] = [
       { view: 'flip', transform: 'pad(00)', key: 'hours' },
       { view: 'flip', transform: 'pad(00)', key: 'minutes' }
     ];
     if (this.config.showSeconds == true) {
-      views.push({ view: 'flip', transform: 'pad(00)', key: 'seconds', className: 'seconds' } as any)
+      views.push({ view: 'flip', transform: 'pad(00)', key: 'seconds', className: 'seconds' })
     }
 
     // Setup AM/PM flip view
     if (this.config.showAmPm == true) {
-      views.push({ view: 'flip', key: 'period', className: 'ampm' } as any)
+      views.push({ view: 'flip', key: 'period', className: 'ampm' })
     }
 
     // Create the main flip-clock object
