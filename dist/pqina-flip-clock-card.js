@@ -563,7 +563,6 @@ var $24c52f343453d62d$export$2e2bcd8739ae039 = {
 };
 
 
-
 /**
  * @license
  * Copyright 2019 Google LLC
@@ -1251,16 +1250,16 @@ function $9cd908ed2625c047$export$d541bacb2bda4494(t) {
 // https://github.com/home-assistant-tutorials/01.development-environment
 //
 
-var $2387484dec479845$exports = {};
-$2387484dec479845$exports = ".tick {\n  box-sizing: border-box;\n  -webkit-user-select: none;\n  user-select: none;\n  cursor: default;\n  z-index: 1;\n  line-height: 1.4;\n  position: relative;\n}\n\n.tick * {\n  box-sizing: inherit;\n}\n\n.tick [data-view] {\n  max-width: 100%;\n}\n\n.tick span[data-view] {\n  display: inline-block;\n}\n\n.tick .tick-credits {\n  opacity: .4;\n  color: inherit;\n  font-size: 11px;\n  text-decoration: none;\n  position: absolute;\n  bottom: 0;\n  right: 0;\n}\n\n.tick [data-layout~=\"pad\"] {\n  margin: -.25em;\n}\n\n.tick [data-layout~=\"pad\"] > * {\n  margin: .25em;\n}\n\n.tick [data-layout~=\"horizontal\"] {\n  flex-direction: row;\n  justify-content: center;\n  display: flex;\n}\n\n.tick [data-layout~=\"horizontal\"][data-layout~=\"baseline\"] {\n  align-items: baseline;\n}\n\n.tick [data-layout~=\"horizontal\"][data-layout~=\"center\"] {\n  justify-content: center;\n}\n\n.tick [data-layout~=\"horizontal\"][data-layout~=\"right\"] {\n  justify-content: flex-end;\n}\n\n.tick [data-layout~=\"horizontal\"][data-layout~=\"left\"] {\n  justify-content: flex-start;\n}\n\n.tick [data-layout~=\"horizontal\"][data-layout~=\"fill\"], .tick [data-layout~=\"horizontal\"][data-layout~=\"stretch\"] {\n  flex-wrap: nowrap;\n  align-content: stretch;\n}\n\n.tick [data-layout~=\"horizontal\"][data-layout~=\"fill\"] > *, .tick [data-layout~=\"horizontal\"][data-layout~=\"stretch\"] > * {\n  flex: 1 0 0;\n  width: 100%;\n}\n\n.tick [data-layout~=\"horizontal\"][data-layout~=\"multi-line\"] {\n  flex-wrap: wrap;\n}\n\n.tick [data-layout~=\"horizontal\"][data-layout~=\"fit\"] {\n  white-space: nowrap;\n  flex-wrap: nowrap;\n  place-content: center flex-start;\n  display: inline-flex;\n}\n\n.tick [data-layout~=\"vertical\"] {\n  flex-direction: column;\n  align-items: center;\n  display: flex;\n}\n\n.tick [data-layout~=\"vertical\"][data-layout~=\"top\"] {\n  justify-content: flex-start;\n}\n\n.tick [data-layout~=\"vertical\"][data-layout~=\"bottom\"] {\n  justify-content: flex-end;\n  min-height: 100%;\n}\n\n.tick [data-layout~=\"vertical\"][data-layout~=\"middle\"] {\n  justify-content: center;\n  min-height: 100%;\n}\n\n.tick [data-layout~=\"vertical\"][data-layout~=\"left\"] {\n  align-items: flex-start;\n}\n\n.tick [data-layout~=\"vertical\"][data-layout~=\"right\"] {\n  align-items: flex-end;\n}\n\n.tick [data-layout~=\"vertical\"][data-layout~=\"center\"] {\n  text-align: center;\n}\n\n.tick [data-layout~=\"vertical\"][data-layout~=\"fill\"], .tick [data-layout~=\"vertical\"][data-layout~=\"stretch\"] {\n  align-items: stretch;\n  min-height: 100%;\n}\n\n.tick [data-layout~=\"vertical\"][data-layout~=\"fill\"] > *, .tick [data-layout~=\"vertical\"][data-layout~=\"stretch\"] > * {\n  flex: 1 0 0;\n}\n\n.tick [data-layout~=\"vertical\"] > * + * {\n  margin-top: .5em;\n}\n\n.tick [data-layout~=\"overlay\"] {\n  position: relative;\n}\n\n.tick [data-layout~=\"overlay\"] > * {\n  margin: 0;\n}\n\n.tick [data-layout~=\"overlay\"][data-layout~=\"center\"] {\n  text-align: center;\n}\n\n.tick [data-layout~=\"overlay\"][data-layout~=\"left\"] {\n  text-align: left;\n}\n\n.tick [data-layout~=\"overlay\"][data-layout~=\"right\"] {\n  text-align: right;\n}\n\n.tick [data-layout~=\"overlay\"] > [data-overlay=\"fill\"], .tick [data-layout~=\"overlay\"] > [data-overlay=\"stretch\"] {\n  position: absolute;\n  inset: 0;\n}\n\n.tick [data-layout~=\"overlay\"] > [data-overlay=\"center\"] {\n  justify-content: center;\n  align-items: center;\n  display: flex;\n  position: absolute;\n  inset: 0;\n}\n\n.tick-flip {\n  text-align: center;\n  position: relative;\n}\n\n.tick-flip * {\n  border-radius: inherit;\n  white-space: pre;\n  letter-spacing: inherit;\n  text-indent: inherit;\n}\n\n.tick-flip-front {\n  border-bottom-right-radius: 0;\n  border-bottom-left-radius: 0;\n}\n\n.tick-flip-back {\n  border-top-left-radius: 0;\n  border-top-right-radius: 0;\n}\n\n.tick-flip-spacer {\n  visibility: hidden;\n  display: block;\n}\n\n.tick-flip-shadow {\n  position: absolute;\n  inset: 1px;\n  color: #0000 !important;\n  background: none !important;\n}\n\n.tick-flip-shadow-top {\n  bottom: calc(50% - 1px);\n}\n\n.tick-flip-shadow-bottom {\n  top: calc(50% + 1px);\n}\n\n.tick-flip-card-shadow {\n  opacity: 0;\n  transform-origin: 0 100%;\n  z-index: 0;\n  background-color: #0000;\n  border-radius: 0;\n  height: .5em;\n  position: absolute;\n  bottom: .125em;\n  left: .15em;\n  right: .15em;\n  box-shadow: 0 .125em .25em #00000080, 0 .125em .5em #000000bf;\n}\n\n.tick-flip-card {\n  z-index: 1;\n  perspective: 4em;\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n\n.tick-flip-panel-back, .tick-flip-panel-front {\n  backface-visibility: hidden;\n  width: 100%;\n  height: 51%;\n  transform-style: preserve-3d;\n  position: absolute;\n  left: 0;\n}\n\n.tick-flip-panel-back-text, .tick-flip-panel-front-text {\n  height: 100%;\n  position: absolute;\n  top: 0;\n  left: -1px;\n  right: -1px;\n  overflow: hidden;\n}\n\n.tick-flip-panel-text-wrapper {\n  height: 100%;\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n}\n\n.tick-flip-panel-back-text .tick-flip-panel-text-wrapper {\n  height: 200%;\n  top: -100%;\n}\n\n.tick-flip-panel-front {\n  transform-origin: bottom;\n  z-index: 2;\n  top: 0;\n  box-shadow: inset 0 1px #ffffff0d;\n}\n\n.tick-flip-panel-back {\n  transform-origin: top;\n  z-index: 1;\n  top: 50%;\n  box-shadow: inset 0 -1px #0000001a;\n}\n\n.tick-flip-panel-back:after {\n  z-index: 1;\n  content: \"\";\n  background-image: linear-gradient(#0000004d 1px, #00000026 0, #0000 30%);\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n\n.tick-flip-panel-back-shadow {\n  z-index: 2;\n}\n\n.tick-flip-panel-back-highlight {\n  z-index: 3;\n}\n\n.tick-flip-panel-back-highlight, .tick-flip-panel-back-shadow {\n  border-bottom-left-radius: inherit;\n  border-bottom-right-radius: inherit;\n}\n\n.tick-flip-panel-back-highlight, .tick-flip-panel-back-shadow, .tick-flip-panel-front-shadow {\n  opacity: 0;\n  position: absolute;\n  inset: 0;\n}\n\n.tick-flip-panel-front-shadow {\n  background-image: linear-gradient(0deg, #000c, #0000004d);\n}\n\n.tick-flip-panel-back-shadow {\n  background-image: linear-gradient(#000000b3, #00000080);\n}\n\n.tick-flip-panel-back-highlight {\n  background-image: linear-gradient(#ffffff26, #ffffff4d);\n}\n\n.tick [data-style*=\"shadow:inner\"], .tick [data-style*=\"shadow:inner\"] .tick-flip-card-shadow, .tick [data-style*=\"shadow:none\"] .tick-flip-card-shadow, .tick [data-style*=\"shadow:none\"] .tick-flip-panel-back, .tick [data-style*=\"shadow:none\"] .tick-flip-panel-front, .tick [data-style*=\"shadow:none\"] .tick-flip-shadow {\n  box-shadow: none;\n}\n\n.tick [data-style*=\"shadow:none\"] .tick-flip-back:after, .tick [data-style*=\"shadow:none\"] .tick-flip-panel-back-shadow, .tick [data-style*=\"shadow:none\"] .tick-flip-panel-back-text:after, .tick [data-style*=\"shadow:none\"] .tick-flip-panel-front-shadow {\n  background-image: none;\n}\n\n.tick [data-style*=\"rounded:none\"] {\n  border-radius: 0;\n}\n\n.tick [data-style*=\"rounded:panels\"] .tick-flip-front, .tick [data-style*=\"rounded:panels\"] .tick-flip-shadow-bottom {\n  border-bottom-left-radius: inherit;\n  border-bottom-right-radius: inherit;\n}\n\n.tick [data-style*=\"rounded:panels\"] .tick-flip-back, .tick [data-style*=\"rounded:panels\"] .tick-flip-panel-back:after, .tick [data-style*=\"rounded:panels\"] .tick-flip-shadow-top {\n  border-top-left-radius: inherit;\n  border-top-right-radius: inherit;\n}\n\n.tick-flip {\n  letter-spacing: .25em;\n  text-indent: .25em;\n  border-radius: .125em;\n  min-width: 1.125em;\n  margin-left: .0625em;\n  margin-right: .0625em;\n}\n\n.tick-flip-panel {\n  color: #edebeb;\n  background-color: #333232;\n}\n\n.tick-flip-shadow {\n  box-shadow: 0 .125em .3125em #00000040, 0 .02125em .06125em #00000040;\n}\n";
+var $af0f7c3918e1ad22$exports = {};
+$af0f7c3918e1ad22$exports = ".tick {\n  box-sizing: border-box;\n  -webkit-user-select: none;\n  user-select: none;\n  cursor: default;\n  z-index: 1;\n  line-height: 1.4;\n  position: relative;\n}\n\n.tick * {\n  box-sizing: inherit;\n}\n\n.tick [data-view] {\n  max-width: 100%;\n}\n\n.tick span[data-view] {\n  display: inline-block;\n}\n\n.tick .tick-credits {\n  opacity: .4;\n  color: inherit;\n  font-size: 11px;\n  text-decoration: none;\n  position: absolute;\n  bottom: 0;\n  right: 0;\n}\n\n.tick [data-layout~=\"pad\"] {\n  margin: -.25em;\n}\n\n.tick [data-layout~=\"pad\"] > * {\n  margin: .25em;\n}\n\n.tick [data-layout~=\"horizontal\"] {\n  flex-direction: row;\n  justify-content: center;\n  display: flex;\n}\n\n.tick [data-layout~=\"horizontal\"][data-layout~=\"baseline\"] {\n  align-items: baseline;\n}\n\n.tick [data-layout~=\"horizontal\"][data-layout~=\"center\"] {\n  justify-content: center;\n}\n\n.tick [data-layout~=\"horizontal\"][data-layout~=\"right\"] {\n  justify-content: flex-end;\n}\n\n.tick [data-layout~=\"horizontal\"][data-layout~=\"left\"] {\n  justify-content: flex-start;\n}\n\n.tick [data-layout~=\"horizontal\"][data-layout~=\"fill\"], .tick [data-layout~=\"horizontal\"][data-layout~=\"stretch\"] {\n  flex-wrap: nowrap;\n  align-content: stretch;\n}\n\n.tick [data-layout~=\"horizontal\"][data-layout~=\"fill\"] > *, .tick [data-layout~=\"horizontal\"][data-layout~=\"stretch\"] > * {\n  flex: 1 0 0;\n  width: 100%;\n}\n\n.tick [data-layout~=\"horizontal\"][data-layout~=\"multi-line\"] {\n  flex-wrap: wrap;\n}\n\n.tick [data-layout~=\"horizontal\"][data-layout~=\"fit\"] {\n  white-space: nowrap;\n  flex-wrap: nowrap;\n  place-content: center flex-start;\n  display: inline-flex;\n}\n\n.tick [data-layout~=\"vertical\"] {\n  flex-direction: column;\n  align-items: center;\n  display: flex;\n}\n\n.tick [data-layout~=\"vertical\"][data-layout~=\"top\"] {\n  justify-content: flex-start;\n}\n\n.tick [data-layout~=\"vertical\"][data-layout~=\"bottom\"] {\n  justify-content: flex-end;\n  min-height: 100%;\n}\n\n.tick [data-layout~=\"vertical\"][data-layout~=\"middle\"] {\n  justify-content: center;\n  min-height: 100%;\n}\n\n.tick [data-layout~=\"vertical\"][data-layout~=\"left\"] {\n  align-items: flex-start;\n}\n\n.tick [data-layout~=\"vertical\"][data-layout~=\"right\"] {\n  align-items: flex-end;\n}\n\n.tick [data-layout~=\"vertical\"][data-layout~=\"center\"] {\n  text-align: center;\n}\n\n.tick [data-layout~=\"vertical\"][data-layout~=\"fill\"], .tick [data-layout~=\"vertical\"][data-layout~=\"stretch\"] {\n  align-items: stretch;\n  min-height: 100%;\n}\n\n.tick [data-layout~=\"vertical\"][data-layout~=\"fill\"] > *, .tick [data-layout~=\"vertical\"][data-layout~=\"stretch\"] > * {\n  flex: 1 0 0;\n}\n\n.tick [data-layout~=\"vertical\"] > * + * {\n  margin-top: .5em;\n}\n\n.tick [data-layout~=\"overlay\"] {\n  position: relative;\n}\n\n.tick [data-layout~=\"overlay\"] > * {\n  margin: 0;\n}\n\n.tick [data-layout~=\"overlay\"][data-layout~=\"center\"] {\n  text-align: center;\n}\n\n.tick [data-layout~=\"overlay\"][data-layout~=\"left\"] {\n  text-align: left;\n}\n\n.tick [data-layout~=\"overlay\"][data-layout~=\"right\"] {\n  text-align: right;\n}\n\n.tick [data-layout~=\"overlay\"] > [data-overlay=\"fill\"], .tick [data-layout~=\"overlay\"] > [data-overlay=\"stretch\"] {\n  position: absolute;\n  inset: 0;\n}\n\n.tick [data-layout~=\"overlay\"] > [data-overlay=\"center\"] {\n  justify-content: center;\n  align-items: center;\n  display: flex;\n  position: absolute;\n  inset: 0;\n}\n\n.tick-flip {\n  text-align: center;\n  position: relative;\n}\n\n.tick-flip * {\n  border-radius: inherit;\n  white-space: pre;\n  letter-spacing: inherit;\n  text-indent: inherit;\n}\n\n.tick-flip-front {\n  border-bottom-right-radius: 0;\n  border-bottom-left-radius: 0;\n}\n\n.tick-flip-back {\n  border-top-left-radius: 0;\n  border-top-right-radius: 0;\n}\n\n.tick-flip-spacer {\n  visibility: hidden;\n  display: block;\n}\n\n.tick-flip-shadow {\n  position: absolute;\n  inset: 1px;\n  color: #0000 !important;\n  background: none !important;\n}\n\n.tick-flip-shadow-top {\n  bottom: calc(50% - 1px);\n}\n\n.tick-flip-shadow-bottom {\n  top: calc(50% + 1px);\n}\n\n.tick-flip-card-shadow {\n  opacity: 0;\n  transform-origin: 0 100%;\n  z-index: 0;\n  background-color: #0000;\n  border-radius: 0;\n  height: .5em;\n  position: absolute;\n  bottom: .125em;\n  left: .15em;\n  right: .15em;\n  box-shadow: 0 .125em .25em #00000080, 0 .125em .5em #000000bf;\n}\n\n.tick-flip-card {\n  z-index: 1;\n  perspective: 4em;\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n\n.tick-flip-panel-back, .tick-flip-panel-front {\n  backface-visibility: hidden;\n  width: 100%;\n  height: 51%;\n  transform-style: preserve-3d;\n  position: absolute;\n  left: 0;\n}\n\n.tick-flip-panel-back-text, .tick-flip-panel-front-text {\n  height: 100%;\n  position: absolute;\n  top: 0;\n  left: -1px;\n  right: -1px;\n  overflow: hidden;\n}\n\n.tick-flip-panel-text-wrapper {\n  height: 100%;\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n}\n\n.tick-flip-panel-back-text .tick-flip-panel-text-wrapper {\n  height: 200%;\n  top: -100%;\n}\n\n.tick-flip-panel-front {\n  transform-origin: bottom;\n  z-index: 2;\n  top: 0;\n  box-shadow: inset 0 1px #ffffff0d;\n}\n\n.tick-flip-panel-back {\n  transform-origin: top;\n  z-index: 1;\n  top: 50%;\n  box-shadow: inset 0 -1px #0000001a;\n}\n\n.tick-flip-panel-back:after {\n  z-index: 1;\n  content: \"\";\n  background-image: linear-gradient(#0000004d 1px, #00000026 0, #0000 30%);\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n\n.tick-flip-panel-back-shadow {\n  z-index: 2;\n}\n\n.tick-flip-panel-back-highlight {\n  z-index: 3;\n}\n\n.tick-flip-panel-back-highlight, .tick-flip-panel-back-shadow {\n  border-bottom-left-radius: inherit;\n  border-bottom-right-radius: inherit;\n}\n\n.tick-flip-panel-back-highlight, .tick-flip-panel-back-shadow, .tick-flip-panel-front-shadow {\n  opacity: 0;\n  position: absolute;\n  inset: 0;\n}\n\n.tick-flip-panel-front-shadow {\n  background-image: linear-gradient(0deg, #000c, #0000004d);\n}\n\n.tick-flip-panel-back-shadow {\n  background-image: linear-gradient(#000000b3, #00000080);\n}\n\n.tick-flip-panel-back-highlight {\n  background-image: linear-gradient(#ffffff26, #ffffff4d);\n}\n\n.tick [data-style*=\"shadow:inner\"], .tick [data-style*=\"shadow:inner\"] .tick-flip-card-shadow, .tick [data-style*=\"shadow:none\"] .tick-flip-card-shadow, .tick [data-style*=\"shadow:none\"] .tick-flip-panel-back, .tick [data-style*=\"shadow:none\"] .tick-flip-panel-front, .tick [data-style*=\"shadow:none\"] .tick-flip-shadow {\n  box-shadow: none;\n}\n\n.tick [data-style*=\"shadow:none\"] .tick-flip-back:after, .tick [data-style*=\"shadow:none\"] .tick-flip-panel-back-shadow, .tick [data-style*=\"shadow:none\"] .tick-flip-panel-back-text:after, .tick [data-style*=\"shadow:none\"] .tick-flip-panel-front-shadow {\n  background-image: none;\n}\n\n.tick [data-style*=\"rounded:none\"] {\n  border-radius: 0;\n}\n\n.tick [data-style*=\"rounded:panels\"] .tick-flip-front, .tick [data-style*=\"rounded:panels\"] .tick-flip-shadow-bottom {\n  border-bottom-left-radius: inherit;\n  border-bottom-right-radius: inherit;\n}\n\n.tick [data-style*=\"rounded:panels\"] .tick-flip-back, .tick [data-style*=\"rounded:panels\"] .tick-flip-panel-back:after, .tick [data-style*=\"rounded:panels\"] .tick-flip-shadow-top {\n  border-top-left-radius: inherit;\n  border-top-right-radius: inherit;\n}\n\n.tick-flip {\n  letter-spacing: .25em;\n  text-indent: .25em;\n  border-radius: .125em;\n  min-width: 1.125em;\n  margin-left: .0625em;\n  margin-right: .0625em;\n}\n\n.tick-flip-panel {\n  color: #edebeb;\n  background-color: #333232;\n}\n\n.tick-flip-shadow {\n  box-shadow: 0 .125em .3125em #00000040, 0 .02125em .06125em #00000040;\n}\n";
 
 
-var $05e794b189fd573b$exports = {};
-$05e794b189fd573b$exports = "ha-card {\n  --width: 95%;\n  --height: \"\";\n  --font: inherit;\n  --font-size: \"\";\n  --text-color: white;\n  --text-offset-horizontal: 0em;\n  --text-offset-vertical: 0em;\n  --front-flap-color: #333;\n  --front-flap-shadow-opacity: .5;\n  --front-flap-gradient-opacity: .2;\n  --rear-flap-color: #2f2f2f;\n  --rear-flap-vertical-offset: .14em;\n}\n\n.card-content {\n  container-type: inline-size;\n}\n\n.clock {\n  width: min(var(--width), 100%);\n  padding-left: calc((100% - min(var(--width), 100%)) / 2);\n}\n\n.tick {\n  line-height: var(--height);\n}\n\n.tick-flip, .tick-text-inline {\n  font-size: var(--font-size);\n  letter-spacing: .06em;\n}\n\n.tick-flip-panel {\n  color: var(--text-color);\n  background-color: var(--front-flap-color);\n}\n\n.tick-flip {\n  font-family: var(--font);\n  border-radius: .15em;\n  width: 1.25em;\n  margin-left: .025em;\n  margin-right: .025em;\n}\n\n.tick-flip-panel-text-wrapper {\n  margin-top: calc(var(--text-offset-vertical)  + .04em);\n  margin-left: calc(var(--text-offset-horizontal)  - .15em);\n}\n\n.tick-flip-shadow {\n  box-shadow: 0em .075em .02em -.03em rgb(0, 0, 0, var(--front-flap-shadow-opacity)), 0em var(--rear-flap-vertical-offset) 0em -.05em var(--rear-flap-color);\n}\n\n.tick-flip-panel-back:after {\n  background-image: linear-gradient(180deg, #000 .01em, #00000026 .015em, transparent 30%, rgba(255, 255, 255, var(--front-flap-gradient-opacity)) 100%);\n  border-radius: 0 0 .15em .15em;\n}\n";
+var $8a257acdecd2833c$exports = {};
+$8a257acdecd2833c$exports = "ha-card {\n  --width: 95%;\n  --height: \"\";\n  --font: inherit;\n  --font-size: \"\";\n  --seconds-font-size: \"\";\n  --am-pm-font-size: \"\";\n  --divider-color: \"\";\n  --divider-font-size: \"\";\n  --text-color: white;\n  --text-offset-horizontal: 0em;\n  --text-offset-vertical: 0em;\n  --front-flap-color: #333;\n  --front-flap-shadow-opacity: .5;\n  --front-flap-gradient-opacity: .2;\n  --rear-flap-color: #2f2f2f;\n  --rear-flap-vertical-offset: .14em;\n}\n\n.card-content {\n  container-type: inline-size;\n}\n\n.clock {\n  width: min(var(--width), 100%);\n  padding-left: calc((100% - min(var(--width), 100%)) / 2);\n}\n\n.tick {\n  line-height: var(--height);\n}\n\n.tick-flip, .tick-text-inline {\n  font-size: var(--font-size);\n  letter-spacing: .06em;\n}\n\n.tick-flip-panel {\n  color: var(--text-color);\n  background-color: var(--front-flap-color);\n}\n\n.tick-flip {\n  font-family: var(--font);\n  border-radius: var(--main-border-radius, .15em);\n  width: 1.25em;\n  margin-left: var(--main-margin, .025em);\n  margin-right: var(--main-margin, .025em);\n  text-indent: .06em;\n}\n\n.tick-flip-card {\n  perspective: var(--main-perspective, 4em);\n}\n\n.tick-flip-panel-text-wrapper {\n  margin-top: calc(var(--text-offset-vertical)  + .04em);\n  margin-left: calc(var(--text-offset-horizontal)  - .15em);\n}\n\n.tick-flip-shadow {\n  box-shadow: 0 var(--main-hinge-y, .075em) var(--main-hinge-blur, .02em) var(--main-hinge-spread, -.03em) rgb(0, 0, 0, var(--front-flap-shadow-opacity)), 0 var(--main-rear-flap-offset, var(--rear-flap-vertical-offset)) 0 var(--main-rear-flap-spread, -.05em) var(--rear-flap-color);\n}\n\n.tick-flip-card-shadow {\n  height: var(--main-card-shadow-h, .5em);\n  bottom: var(--main-card-shadow-bottom, .125em);\n  left: var(--main-card-shadow-inset, .15em);\n  right: var(--main-card-shadow-inset, .15em);\n  box-shadow: 0 var(--main-card-shadow-y, .125em) var(--main-card-shadow-blur1, .25em) #00000080, 0 var(--main-card-shadow-y, .125em) var(--main-card-shadow-blur2, .5em) #000000bf;\n}\n\n.tick-flip-panel-back:after {\n  background-image: linear-gradient(180deg, #000 .01em, #00000026 .015em, transparent 30%, rgba(255, 255, 255, var(--front-flap-gradient-opacity)) 100%);\n  border-radius: 0 0 var(--main-border-radius, .15em) var(--main-border-radius, .15em);\n}\n\n.seconds.tick-flip {\n  font-size: var(--seconds-font-size, var(--font-size));\n}\n\n.ampm.tick-flip {\n  font-size: var(--am-pm-font-size, var(--font-size));\n  width: 2.5em;\n}\n\n.tick [data-layout] > .divider {\n  flex: 0 0 auto;\n  width: auto;\n  font-size: var(--divider-font-size, var(--font-size));\n  color: var(--divider-color, var(--text-color));\n  padding: 0 0.1em;\n  user-select: none;\n  align-self: center;\n  line-height: 1;\n}";
 
 
 const $c457fb01bf7d3200$export$9dd6ff9ea0189349 = (0, $def2de46b9306e8a$export$dbf350e5966cf602)`
-  ${(0, $def2de46b9306e8a$export$8d80f9cac07cdb3)((0, (/*@__PURE__*/$parcel$interopDefault($2387484dec479845$exports))) + '\n' + (0, (/*@__PURE__*/$parcel$interopDefault($05e794b189fd573b$exports))))}
+  ${(0, $def2de46b9306e8a$export$8d80f9cac07cdb3)((0, (/*@__PURE__*/$parcel$interopDefault($af0f7c3918e1ad22$exports))) + '\n' + (0, (/*@__PURE__*/$parcel$interopDefault($8a257acdecd2833c$exports))))}
 `;
 
 
@@ -5546,18 +5545,42 @@ class $d6fbcaf2ae884da5$export$9ff5a644c2d64964 extends (0, $ab210b2da7b39b9d$ex
     }
     // Create and configure the PQINA flip clock
     setup() {
-        // Setup 'flip' subviews
-        const units = [
-            "hours",
-            "minutes"
-        ];
-        if (this.config.showSeconds == true) units.push("seconds");
-        const views = units.map((unit)=>{
-            return {
+        // Setup 'flip' subviews with colon dividers
+        const views = [
+            {
                 view: 'flip',
                 transform: 'pad(00)',
-                key: unit
-            };
+                key: 'hours'
+            },
+            {
+                view: 'text',
+                key: 'div1',
+                className: 'divider'
+            },
+            {
+                view: 'flip',
+                transform: 'pad(00)',
+                key: 'minutes'
+            }
+        ];
+        if (this.config.showSeconds == true) {
+            views.push({
+                view: 'text',
+                key: 'div2',
+                className: 'divider'
+            });
+            views.push({
+                view: 'flip',
+                transform: 'pad(00)',
+                key: 'seconds',
+                className: 'seconds'
+            });
+        }
+        // Setup AM/PM flip view
+        if (this.config.showAmPm == true) views.push({
+            view: 'flip',
+            key: 'period',
+            className: 'ampm'
         });
         // Create the main flip-clock object
         this._tick = (0, $be77b5faedcab601$export$2e2bcd8739ae039).DOM.create({
@@ -5612,16 +5635,41 @@ class $d6fbcaf2ae884da5$export$9ff5a644c2d64964 extends (0, $ab210b2da7b39b9d$ex
         const card = this.shadowRoot.querySelector('ha-card');
         card.style.setProperty('--ha-card-border-color', this.config.hideBackground ? 'transparent' : '');
         card.style.setProperty('--ha-card-background', this.config.hideBackground ? 'transparent' : '');
-        // Set default height based on the showSeconds setting
-        card.style.setProperty('--height', this.config.showSeconds ? '30cqw' : '45cqw');
-        card.style.setProperty('--font-size', this.config.showSeconds ? '20cqw' : '30cqw');
+        // Set default height and font-size based on the showSeconds and showAmPm settings
+        const hasExtras = this.config.showSeconds || this.config.showAmPm;
+        card.style.setProperty('--height', hasExtras ? '30cqw' : '45cqw');
+        card.style.setProperty('--font-size', hasExtras ? '20cqw' : '30cqw');
         const cardContent = this.shadowRoot.querySelector('.card-content');
-        if (this.config.styles) Object.entries(this.config.styles).forEach(([key, value])=>{
-            const kebapCaseKey = key.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase();
-            cardContent.style.setProperty(`--${kebapCaseKey}`, value || "");
-        });
+        if (this.config.styles) {
+            Object.entries(this.config.styles).forEach(([key, value])=>{
+                const kebapCaseKey = key.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase();
+                cardContent.style.setProperty(`--${kebapCaseKey}`, value || "");
+            });
+            // Calculate main perspective so seconds/ampm flip animation matches the main clock
+            const mainFontSize = this.config.styles.fontSize;
+            if (mainFontSize) {
+                const parsed = parseFloat(mainFontSize);
+                if (!isNaN(parsed)) {
+                    const unit = mainFontSize.replace(String(parsed), '').trim() || 'px';
+                    cardContent.style.setProperty('--main-perspective', `${parsed * 4}${unit}`);
+                    cardContent.style.setProperty('--main-rear-flap-offset', `${parsed * 0.14}${unit}`);
+                    cardContent.style.setProperty('--main-rear-flap-spread', `${parsed * -0.05}${unit}`);
+                    cardContent.style.setProperty('--main-border-radius', `${parsed * 0.15}${unit}`);
+                    cardContent.style.setProperty('--main-margin', `${parsed * 0.025}${unit}`);
+                    cardContent.style.setProperty('--main-hinge-y', `${parsed * 0.075}${unit}`);
+                    cardContent.style.setProperty('--main-hinge-blur', `${parsed * 0.02}${unit}`);
+                    cardContent.style.setProperty('--main-hinge-spread', `${parsed * -0.03}${unit}`);
+                    cardContent.style.setProperty('--main-card-shadow-h', `${parsed * 0.5}${unit}`);
+                    cardContent.style.setProperty('--main-card-shadow-bottom', `${parsed * 0.125}${unit}`);
+                    cardContent.style.setProperty('--main-card-shadow-inset', `${parsed * 0.15}${unit}`);
+                    cardContent.style.setProperty('--main-card-shadow-y', `${parsed * 0.125}${unit}`);
+                    cardContent.style.setProperty('--main-card-shadow-blur1', `${parsed * 0.25}${unit}`);
+                    cardContent.style.setProperty('--main-card-shadow-blur2', `${parsed * 0.5}${unit}`);
+                }
+            }
+        }
     }
-    // Called each second by the flip-clock timer to update the shwon values
+    // Called each second by the flip-clock timer to update the shown values
     getClockValue() {
         const serverTimeZone = this._hass?.config?.time_zone;
         const browserTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -5631,13 +5679,18 @@ class $d6fbcaf2ae884da5$export$9ff5a644c2d64964 extends (0, $ab210b2da7b39b9d$ex
         const date = new Date(new Date().toLocaleString("en-US", {
             timeZone: timeZone
         }));
-        const hours = this.config.twentyFourHourFormat ? date.getHours() : date.getHours() % 12 || 12;
+        const rawHours = date.getHours();
+        const hours = this.config.twentyFourHourFormat ? rawHours : rawHours % 12 || 12;
         const minutes = date.getMinutes();
         const seconds = date.getSeconds();
+        const period = rawHours >= 12 ? 'PM' : 'AM';
         const value = {
             hours: hours,
+            div1: ':',
             minutes: minutes,
-            seconds: seconds
+            div2: ':',
+            seconds: seconds,
+            period: period
         };
         return value;
     }
